@@ -7,14 +7,14 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { AVATAR_URL, BACKGROUND_IMAGE_URL } from "../utils/constants";
 
 const Login = () => {
   const [isSinInForm, setIsSinInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState();
-  const navigate = useNavigate();
+ 
   const dispatch = useDispatch();
 
   const email = useRef(null);
@@ -43,8 +43,7 @@ const Login = () => {
             // Upate Usaer Profile
             updateProfile(user, {
               displayName: fullName.current.value,
-              photoURL:
-                "https://lh3.googleusercontent.com/a/ACg8ocKu4xNckDF9-9VHMBQI2tYI65Cel0udrANw-9isjj-Z-LiDeUc=s360-c-no",
+              photoURL:AVATAR_URL
             })
               .then(() => {
                 const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -56,7 +55,6 @@ const Login = () => {
                     photoURL: photoURL,
                   })
                 );
-                navigate("/browse");
                 console.log(user);
               })
               .catch((error) => {
@@ -80,7 +78,6 @@ const Login = () => {
             // Signed in
             const user = userCredential.user;
             console.log(user);
-            navigate("/browse");
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -98,8 +95,9 @@ const Login = () => {
     <>
       <Header />
       <div className="absolute">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/cacfadb7-c017-4318-85e4-7f46da1cae88/e43aa8b1-ea06-46a5-abe3-df13243e718d/IN-en-20240603-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+        <img 
+        className=""
+          src={BACKGROUND_IMAGE_URL}
           alt="Background"
         />
       </div>
