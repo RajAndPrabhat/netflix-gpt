@@ -23,9 +23,6 @@ const Login = () => {
 
   const handleButtonClick = () => {
     // Validate the Form
-    console.log(email.current.value);
-    console.log(password.current.value);
-
     const message = checkValidData(email.current.value, password.current.value);
     setErrorMessage(message);
 
@@ -54,8 +51,7 @@ const Login = () => {
                     displayName: displayName,
                     photoURL: photoURL,
                   })
-                );
-                console.log(user);
+                );                
               })
               .catch((error) => {
                 const errorCode = error.code;
@@ -76,8 +72,7 @@ const Login = () => {
         )
           .then((userCredential) => {
             // Signed in
-            const user = userCredential.user;
-            console.log(user);
+            const user = userCredential.user;           
           })
           .catch((error) => {
             const errorCode = error.code;
