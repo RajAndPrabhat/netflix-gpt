@@ -71,8 +71,7 @@ const Login = () => {
           password.current.value
         )
           .then((userCredential) => {
-            // Signed in
-            const user = userCredential.user;           
+                                 
           })
           .catch((error) => {
             const errorCode = error.code;
