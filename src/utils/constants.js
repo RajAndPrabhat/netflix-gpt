@@ -13,4 +13,9 @@ export const APP_OPTIONS = {
   },
 };
 
-export const MOVIE_IMG_CDN="https://image.tmdb.org/t/p/w500/";
+export const MOVIE_IMG_CDN = "https://image.tmdb.org/t/p/w500/";
+export const SUPPORTED_LANGUAGE = [
+  { identifier: "en", name: "English" },
+  { identifier: "hin", name: "Hindi" },
+  { identifier: "spanis", name: "Spanish" },
+];
